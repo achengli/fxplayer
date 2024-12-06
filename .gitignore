@@ -5,3 +5,5 @@
 .*/.*.class
 javafx*
 openjfx*
+*.log
+*/*.log
