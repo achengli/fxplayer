@@ -12,43 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Date;
 
-/*
- * INMUTABLE
- * Esta clase se debe usar sin ser modificada, es una clase estructura para ser usada
- * como contenedor de los datos de cada cancion.
- * 
- * Atributos de la estructura de datos:
- * - comment_id: ID
- * - comment: Contenido del comentario
- * - date: Fecha de publicacion del comentario
- * - response: 
-  * */
-
-class Comment {
-  public Integer comment_id;
-  public String comment;
-  public Date date = new Date();
-  public Integer response = -1;
-
-  public Comment(Integer comment_id, String comment, Date date, Integer response){
-    this.comment_id = comment_id;
-    this.comment = comment;
-    this.date = date;
-    this.response = response;
-  }
-
-  public Comment(Integer comment_id, String comment, Date date){
-    this.comment_id = comment_id;
-    this.comment = comment;
-    this.date = date;
-  }
-
-  public Comment(Integer comment_id, String comment){
-    this.comment_id = comment_id;
-    this.comment = comment;
-  }
-}
-
 /* INMUTABLE
  * Esta clase es un contenedor de un valor que puede ser un string o un entero.
  * No modificar la clase, solo usarla si es necesario.
@@ -93,6 +56,25 @@ class StringOrInteger {
   }
 }
 
+/*
+ * INMUTABLE
+ * Esta clase se debe usar sin ser modificada, es una clase estructura para ser usada
+ * como contenedor de los datos de cada cancion.
+ * 
+ * Atributos de la estructura de datos:
+ * - comment_id: ID
+ * - comment: Contenido del comentario
+ * - date: Fecha de publicacion del comentario
+ * - response: 
+ */
+class Comment extends HashMap<String, Object> {
+  public Comment(Integer comment_id, String comment, Date date, Integer response){
+    super.put("comment_id", comment_id);
+    super.put("comment", comment);
+    super.put("date", date);
+    super.put("response", response >= 0 ? response : -1);
+  }
+}
 
 public class Comments {
   
@@ -108,6 +90,27 @@ public class Comments {
    * Devuelve todos los comentarios asociados a una cancion
    */
   public static ArrayList<Comment> searchAllComments(StringOrInteger song){
-    return new ArrayList<Comment>();
+    return new ArrayList<Comment>(); // TODO
+  }
+
+  /*
+   * Devuelve las respuestas asociadas a un comentario concreto
+   */
+  public static ArrayList<Comment> searchResponses(Integer comment_id){
+    return new ArrayList<Comment>(); // TODO
+  }
+
+  /*
+   * Anade un comentario a una cancion (usando el id de la cancion)
+   */
+  public static Boolean postComment(Integer song_id, Comment comment){
+    return true; // TODO
+  }
+
+  /*
+   * Anade una respuesta a un comentario (usando el id del comentario)
+   */
+  public static Boolean postResponse(Integer comment_id, Comment response){
+    return true; // TODO
   }
 }

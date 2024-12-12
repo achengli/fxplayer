@@ -23,46 +23,24 @@ import java.util.HashMap;
  * - audio_path: localizacion del fichero multimedia de audio.
  * - logo_path: localizacion del logo de la cancion (multimedia de tipo imagen).
  * */
-class Song {
-  public Integer song_id;
-  public String name;
-  public String author_name = "Undefined author";
-  public Integer author_id = -1;
-  public String audio_path;
-  public String logo_path;
-
-  public Song(Integer song_id, String name, String audio_path, String logo_path, String author_name, 
+class Song extends HashMap<String, Object> {
+  public Song(Integer song_id, String song_name, String audio_path, String logo_path, String author_name,
       Integer author_id){
-    this.song_id = song_id;
-    this.name = name; 
-    this.audio_path = audio_path; 
-    this.logo_path = logo_path;
-    this.author_name = author_name; 
-    this.author_id = author_id;
+    super.put("song_id", song_id);
+    super.put("song_name", song_name);
+    super.put("audio_path", audio_path);
+    super.put("logo_path", logo_path);
+    super.put("author_id", author_id);
+    super.put("author_name", author_name);
   }
 
-  public Song(Integer song_id, String name, String audio_path, String logo_path, String author_name) {
-    this.song_id = song_id;
-    this.name = name; 
-    this.audio_path = audio_path; 
-    this.logo_path = logo_path;
-    this.author_name = author_name; 
-  }
-  
-  public Song(Integer song_id, String name, String audio_path, String logo_path, Integer author_id) {
-    this.song_id = song_id;
-    this.name = name; 
-    this.audio_path = audio_path; 
-    this.logo_path = logo_path;
-    this.author_id = author_id;
+  public Song(Integer song_id, String song_name,  String audio_path, String logo_path, String author_name){
+    this(song_id, song_name, audio_path, logo_path, author_name, null);
   }
 
-   public Song(Integer song_id, String name, String audio_path, String logo_path) {
-     this.song_id =song_id;
-     this.name = name; 
-     this.audio_path = audio_path; 
-     this.logo_path = logo_path;
-   }
+  public Song(Integer song_id, String song_name, String audio_path, String logo_path){
+    this(song_id, song_name, audio_path, logo_path, null, null);
+  }
 }
 
 public class Songs {
@@ -72,7 +50,7 @@ public class Songs {
    * Devuelve una lista de las canciones localizadas, en caso de ser 0 canciones devuelve un objeto 
    * ArrayList<Song>()
    * */
-  public static ArrayList<Song> searchName(String song_name) {
+  public static ArrayList<Song> searchByName(String song_name) {
     return new ArrayList<Song>(); // TODO
   }
 
@@ -83,7 +61,7 @@ public class Songs {
    * la enie.
    * Devuelve una lista de las canciones que se han encontrado.
    * */
-  public static ArrayList<Song> searchAuthor(String author_name){
+  public static ArrayList<Song> searchByAuthor(String author_name){
     return new ArrayList<Song>(); // TODO
   }
 
@@ -91,7 +69,15 @@ public class Songs {
    * Borra la cancion que se pasa por parametro de la base de datos.
    * Si la cancion ha sido localizada y borrada, entonces envia un true, en otro caso envia un false.
    * */
-  public static Boolean deleteSong(String song_name){
+  public static Boolean deleteSongByName(String song_name){
+    return false;
+  }
+
+   /*
+   * Borra la cancion que se pasa por parametro de la base de datos.
+   * Si la cancion ha sido localizada y borrada, entonces envia un true, en otro caso envia un false.
+   * */
+  public static Boolean deleteSongById(Integer song_id){
     return false;
   }
 }
