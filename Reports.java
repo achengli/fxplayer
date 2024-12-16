@@ -21,14 +21,20 @@ class Report extends HashMap<String, Integer> {
 
 public class Reports {
 
+  /* Obtiene todas las denuncias de un comentario
+   */
   public ArrayList<Report> getAllCommentReports(Integer comment_id){
-    return new ArrayList<>();
+    return new ArrayList<>(); // TODO
   }
 
+  /* Cuenta cuantas denuncias tiene un comentario
+   */
   public Integer countCommentReports(Integer comment_id){
-    return 0;
+    return getAllCommentReports(comment_id).size();
   }
 
+  /* Anade una denuncia a un comentario.
+   */
   public Boolean addCommentReport(Integer comment_id, Integer user_id, Integer report_id){
     return true;
   }

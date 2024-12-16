@@ -69,15 +69,11 @@ public class Songs {
    * Borra la cancion que se pasa por parametro de la base de datos.
    * Si la cancion ha sido localizada y borrada, entonces envia un true, en otro caso envia un false.
    * */
-  public static Boolean deleteSongByName(String song_name){
-    return false;
+  public static Boolean deleteSong(Song song){
+    return false; // TODO
   }
-
-   /*
-   * Borra la cancion que se pasa por parametro de la base de datos.
-   * Si la cancion ha sido localizada y borrada, entonces envia un true, en otro caso envia un false.
-   * */
-  public static Boolean deleteSongById(Integer song_id){
-    return false;
+  
+  public static ArrayList<Playlist> getPlaylistWithSong(Song song){
+    return new ArrayList<>();
   }
 }
